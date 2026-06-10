@@ -10,14 +10,6 @@ import Footer from "@/components/webzingo/Footer";
 import CustomCursor from "@/components/webzingo/CustomCursor";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Webzingo — Premium Web Studio for Ambitious Brands" },
-      { name: "description", content: "Premium web experiences for ambitious brands. Landing pages, business sites, and brand-elite builds starting at ₹2,999." },
-      { property: "og:title", content: "Webzingo — Premium Web Studio" },
-      { property: "og:description", content: "Premium web experiences for ambitious brands — starting at ₹2,999." },
-    ],
-  }),
   component: Index,
 });
 
