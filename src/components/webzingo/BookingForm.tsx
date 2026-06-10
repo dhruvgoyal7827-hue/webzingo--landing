@@ -9,15 +9,10 @@ const serviceOptions = [
   "Full Business Site",
   "Custom Web Application",
   "E-commerce Store",
-  "Brand Identity & Design"
+  "Brand Identity & Design",
 ];
 
-const budgetOptions = [
-  "Under ₹10,000",
-  "₹10,000 - ₹30,000",
-  "₹30,000 - ₹1,00,000",
-  "₹1,00,000+"
-];
+const budgetOptions = ["Under ₹10,000", "₹10,000 - ₹30,000", "₹30,000 - ₹1,00,000", "₹1,00,000+"];
 
 export default function BookingForm() {
   const [name, setName] = useState("");
@@ -26,7 +21,7 @@ export default function BookingForm() {
   const [service, setService] = useState("");
   const [budget, setBudget] = useState("");
   const [message, setMessage] = useState("");
-  
+
   const [isServiceOpen, setIsServiceOpen] = useState(false);
   const [isBudgetOpen, setIsBudgetOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -34,7 +29,7 @@ export default function BookingForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!name.trim()) {
       toast.error("Please enter your name");
       return;
@@ -75,12 +70,12 @@ export default function BookingForm() {
           project_type: service,
           message: message.trim(),
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ""
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "",
       );
 
       setSubmitted(true);
       toast.success("Booking request sent successfully!");
-      
+
       // Reset form
       setName("");
       setEmail("");
@@ -90,7 +85,8 @@ export default function BookingForm() {
       setMessage("");
     } catch (error: any) {
       console.error("Error sending email via EmailJS: ", error);
-      const errorMsg = error?.text || error?.message || "Failed to submit request. Please try again.";
+      const errorMsg =
+        error?.text || error?.message || "Failed to submit request. Please try again.";
       toast.error(errorMsg);
     } finally {
       setLoading(false);
@@ -100,14 +96,13 @@ export default function BookingForm() {
   return (
     <section id="contact" className="relative w-full overflow-hidden bg-bg-deep py-24 px-6">
       <Toaster position="bottom-right" richColors />
-      
+
       {/* Glow Effects */}
       <div className="pointer-events-none absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-accent-glow/10 blur-[150px]" />
       <div className="pointer-events-none absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-accent-blue/10 blur-[150px]" />
 
       <div className="relative mx-auto max-w-6xl">
         <div className="grid gap-16 lg:grid-cols-12">
-          
           {/* Left Column: Context Info */}
           <div className="flex flex-col justify-center lg:col-span-5">
             <motion.div
@@ -120,7 +115,7 @@ export default function BookingForm() {
                 <Sparkles size={12} className="text-accent-glow animate-pulse" />
                 Let's start your project
               </div>
-              
+
               <h2 className="font-display text-4xl font-bold tracking-tight text-text-primary sm:text-5xl text-glow leading-tight">
                 Let's build something <br />
                 <span className="bg-gradient-to-r from-accent-glow via-accent-violet to-accent-blue bg-clip-text text-transparent">
@@ -128,9 +123,10 @@ export default function BookingForm() {
                 </span>{" "}
                 together.
               </h2>
-              
+
               <p className="mt-6 text-base text-text-muted sm:text-lg leading-relaxed">
-                Have an ambitious idea? Share your project details below, and we'll craft a bespoke web experience tailored for your brand. Let's make your vision reality.
+                Have an ambitious idea? Share your project details below, and we'll craft a bespoke
+                web experience tailored for your brand. Let's make your vision reality.
               </p>
 
               <div className="mt-8 flex flex-col gap-6 text-sm text-text-muted">
@@ -181,7 +177,8 @@ export default function BookingForm() {
                       Proposal Submitted!
                     </h3>
                     <p className="mt-3 max-w-sm text-sm text-text-muted">
-                      Thank you for choosing Webzingo, {name}. Our team will review your application and contact you via email at {email} within 24 hours.
+                      Thank you for choosing Webzingo, {name}. Our team will review your application
+                      and contact you via email at {email} within 24 hours.
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
@@ -191,14 +188,13 @@ export default function BookingForm() {
                     </button>
                   </motion.div>
                 ) : (
-                  <motion.form
-                    key="form"
-                    onSubmit={handleSubmit}
-                    className="flex flex-col gap-6"
-                  >
+                  <motion.form key="form" onSubmit={handleSubmit} className="flex flex-col gap-6">
                     {/* Name */}
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="name" className="text-xs font-semibold uppercase tracking-wider text-text-muted">
+                      <label
+                        htmlFor="name"
+                        className="text-xs font-semibold uppercase tracking-wider text-text-muted"
+                      >
                         Full Name
                       </label>
                       <input
@@ -214,7 +210,10 @@ export default function BookingForm() {
 
                     {/* Email */}
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-text-muted">
+                      <label
+                        htmlFor="email"
+                        className="text-xs font-semibold uppercase tracking-wider text-text-muted"
+                      >
                         Email Address
                       </label>
                       <input
@@ -230,7 +229,10 @@ export default function BookingForm() {
 
                     {/* Phone */}
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="phone" className="text-xs font-semibold uppercase tracking-wider text-text-muted">
+                      <label
+                        htmlFor="phone"
+                        className="text-xs font-semibold uppercase tracking-wider text-text-muted"
+                      >
                         Phone Number
                       </label>
                       <input
@@ -260,7 +262,10 @@ export default function BookingForm() {
                         <span className={service ? "text-text-primary" : "text-text-muted/50"}>
                           {service || "Select service type..."}
                         </span>
-                        <ChevronDown size={16} className={`transition-transform duration-200 ${isServiceOpen ? "rotate-180" : ""}`} />
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform duration-200 ${isServiceOpen ? "rotate-180" : ""}`}
+                        />
                       </button>
 
                       <AnimatePresence>
@@ -282,7 +287,9 @@ export default function BookingForm() {
                                 className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm text-text-muted hover:bg-bg-deep/80 hover:text-text-primary transition-colors"
                               >
                                 {opt}
-                                {service === opt && <Check size={14} className="text-accent-glow" />}
+                                {service === opt && (
+                                  <Check size={14} className="text-accent-glow" />
+                                )}
                               </button>
                             ))}
                           </motion.div>
@@ -306,7 +313,10 @@ export default function BookingForm() {
                         <span className={budget ? "text-text-primary" : "text-text-muted/50"}>
                           {budget || "Select budget range..."}
                         </span>
-                        <ChevronDown size={16} className={`transition-transform duration-200 ${isBudgetOpen ? "rotate-180" : ""}`} />
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform duration-200 ${isBudgetOpen ? "rotate-180" : ""}`}
+                        />
                       </button>
 
                       <AnimatePresence>
@@ -338,7 +348,10 @@ export default function BookingForm() {
 
                     {/* Project Details */}
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="message" className="text-xs font-semibold uppercase tracking-wider text-text-muted">
+                      <label
+                        htmlFor="message"
+                        className="text-xs font-semibold uppercase tracking-wider text-text-muted"
+                      >
                         Project Brief
                       </label>
                       <textarea
@@ -363,7 +376,10 @@ export default function BookingForm() {
                       ) : (
                         <>
                           Send Project Request
-                          <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                          <ArrowRight
+                            size={16}
+                            className="transition-transform group-hover:translate-x-1"
+                          />
                         </>
                       )}
                     </button>
@@ -372,7 +388,6 @@ export default function BookingForm() {
               </AnimatePresence>
             </motion.div>
           </div>
-
         </div>
       </div>
     </section>

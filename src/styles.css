@@ -2,7 +2,7 @@
 @source "../src";
 @import "tw-animate-css";
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -79,12 +79,20 @@
   --animate-spin-slow: spin 6s linear infinite;
 
   @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
   @keyframes marquee-reverse {
-    from { transform: translateX(-50%); }
-    to { transform: translateX(0); }
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
   }
 }
 
@@ -179,7 +187,10 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
@@ -190,7 +201,9 @@
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 24px rgba(168, 85, 247, 0.45), 0 0 60px rgba(124, 58, 237, 0.25);
+    text-shadow:
+      0 0 24px rgba(168, 85, 247, 0.45),
+      0 0 60px rgba(124, 58, 237, 0.25);
   }
   .glass {
     background: rgba(15, 15, 26, 0.7);
@@ -217,10 +230,14 @@
     border-radius: inherit;
     padding: 1px;
     background: conic-gradient(from var(--angle, 0deg), #7c3aed, #2563eb, #a855f7, #7c3aed);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
-            mask-composite: exclude;
+    mask-composite: exclude;
     animation: spin 6s linear infinite;
   }
   @property --angle {

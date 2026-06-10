@@ -72,7 +72,8 @@ function Particles({ count = 3200 }: { count?: number }) {
     const t = state.clock.getElapsedTime();
     ref.current.rotation.y = t * 0.03;
     mouse.current.lerp(state.pointer, 0.05);
-    const arr = (ref.current.geometry.attributes.position as THREE.BufferAttribute).array as Float32Array;
+    const arr = (ref.current.geometry.attributes.position as THREE.BufferAttribute)
+      .array as Float32Array;
     const mx = mouse.current.x * viewport.width * 0.5;
     const my = mouse.current.y * viewport.height * 0.5;
     for (let i = 0; i < count; i++) {

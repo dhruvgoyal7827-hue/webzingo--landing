@@ -7,7 +7,10 @@ export default function CustomCursor() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.matchMedia("(pointer: coarse)").matches) return;
-    let x = 0, y = 0, rx = 0, ry = 0;
+    let x = 0,
+      y = 0,
+      rx = 0,
+      ry = 0;
     const onMove = (e: MouseEvent) => {
       x = e.clientX;
       y = e.clientY;

@@ -13,7 +13,10 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
     }
   }, [inView, mv, to]);
   return (
-    <span ref={ref} className="font-display text-5xl font-bold text-text-primary sm:text-6xl md:text-7xl">
+    <span
+      ref={ref}
+      className="font-display text-5xl font-bold text-text-primary sm:text-6xl md:text-7xl"
+    >
       <motion.span>{rounded}</motion.span>
       {suffix}
     </span>
@@ -44,7 +47,9 @@ export default function Stats() {
               className="px-4 text-center"
             >
               <Counter to={s.value} suffix={s.suffix} />
-              <div className="mt-3 text-sm uppercase tracking-[0.2em] text-text-muted">{s.label}</div>
+              <div className="mt-3 text-sm uppercase tracking-[0.2em] text-text-muted">
+                {s.label}
+              </div>
             </motion.div>
           ))}
         </div>
