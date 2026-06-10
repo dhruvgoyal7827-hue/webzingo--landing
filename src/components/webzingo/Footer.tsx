@@ -16,7 +16,10 @@ export default function Footer() {
                   <stop offset="100%" stopColor="#2563eb" />
                 </linearGradient>
               </defs>
-              <path d="M11 1L13.5 8.5L21 11L13.5 13.5L11 21L8.5 13.5L1 11L8.5 8.5Z" fill="url(#fg)" />
+              <path
+                d="M11 1L13.5 8.5L21 11L13.5 13.5L11 21L8.5 13.5L1 11L8.5 8.5Z"
+                fill="url(#fg)"
+              />
             </svg>
             <span className="font-display text-xl font-bold text-text-primary">Webzingo</span>
           </div>

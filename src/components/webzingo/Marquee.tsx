@@ -1,4 +1,13 @@
-const brands = ["STARTUP X", "AGENCY Y", "BRAND Z", "STUDIO W", "NOVA LABS", "PARALLEL", "ORBIT.IO", "KINETIC"];
+const brands = [
+  "STARTUP X",
+  "AGENCY Y",
+  "BRAND Z",
+  "STUDIO W",
+  "NOVA LABS",
+  "PARALLEL",
+  "ORBIT.IO",
+  "KINETIC",
+];
 
 function Row({ reverse = false }: { reverse?: boolean }) {
   return (

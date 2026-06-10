@@ -71,9 +71,7 @@ export default function Services() {
               <span className="absolute -bottom-2 left-0 h-[3px] w-full rounded-full bg-gradient-to-r from-accent-violet/0 via-accent-glow to-accent-violet/0" />
             </span>
           </h2>
-          <p className="mt-4 text-text-muted">
-            Transparent pricing. Real craft. Built to perform.
-          </p>
+          <p className="mt-4 text-text-muted">Transparent pricing. Real craft. Built to perform.</p>
         </motion.div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:items-center">
@@ -104,7 +102,9 @@ export default function Services() {
                 <p className="mt-1 text-sm text-text-muted">{t.tagline}</p>
 
                 <div className="mt-6 flex items-baseline gap-2">
-                  <span className="font-display text-5xl font-bold text-text-primary">{t.price}</span>
+                  <span className="font-display text-5xl font-bold text-text-primary">
+                    {t.price}
+                  </span>
                   <span className="text-sm text-text-muted">one-time</span>
                 </div>
 

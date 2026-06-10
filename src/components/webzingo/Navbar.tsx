@@ -27,7 +27,10 @@ export default function Navbar() {
                   <stop offset="100%" stopColor="#2563eb" />
                 </linearGradient>
               </defs>
-              <path d="M11 1L13.5 8.5L21 11L13.5 13.5L11 21L8.5 13.5L1 11L8.5 8.5Z" fill="url(#g1)" />
+              <path
+                d="M11 1L13.5 8.5L21 11L13.5 13.5L11 21L8.5 13.5L1 11L8.5 8.5Z"
+                fill="url(#g1)"
+              />
             </svg>
             <span className="font-display text-xl font-bold tracking-tight text-text-primary">
               Webzingo
