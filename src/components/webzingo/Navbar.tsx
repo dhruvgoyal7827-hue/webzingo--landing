@@ -2,13 +2,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
+interface NavbarProps {
+  onGoogleSignIn?: () => void;
+  signingIn?: boolean;
+}
+
 const links = [
   { label: "Work", href: "#work" },
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onGoogleSignIn, signingIn }: NavbarProps) {
   const [open, setOpen] = useState(false);
   return (
     <motion.header
@@ -48,12 +53,14 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden items-center gap-3 md:flex">
-            <a
-              href="http://localhost:8081/login"
-              className="rounded-full border border-border-glass bg-bg-card/40 px-5 py-2 text-sm font-medium text-text-primary backdrop-blur transition-all hover:border-accent-violet/50 hover:bg-bg-card"
+            <button
+              id="google-signin"
+              onClick={onGoogleSignIn}
+              disabled={signingIn}
+              className="rounded-full border border-border-glass bg-bg-card/40 px-5 py-2 text-sm font-medium text-text-primary backdrop-blur transition-all hover:border-accent-violet/50 hover:bg-bg-card disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Client Login
-            </a>
+              {signingIn ? "Signing in…" : "Client Login"}
+            </button>
             <a
               href="#contact"
               className="rounded-full bg-accent-violet px-5 py-2 text-sm font-medium text-white shadow-[0_0_24px_rgba(124,58,237,0.4)] transition-all hover:bg-accent-glow hover:shadow-[0_0_36px_rgba(168,85,247,0.6)]"
@@ -90,13 +97,13 @@ export default function Navbar() {
                     {l.label}
                   </a>
                 ))}
-                <a
-                  href="http://localhost:8081/login"
-                  onClick={() => setOpen(false)}
-                  className="rounded-full border border-border-glass bg-bg-card/40 px-5 py-2 text-center text-sm font-medium text-text-primary backdrop-blur hover:bg-bg-card/80"
+                <button
+                  onClick={() => { setOpen(false); onGoogleSignIn?.(); }}
+                  disabled={signingIn}
+                  className="rounded-full border border-border-glass bg-bg-card/40 px-5 py-2 text-center text-sm font-medium text-text-primary backdrop-blur hover:bg-bg-card/80 disabled:opacity-60"
                 >
-                  Client Login
-                </a>
+                  {signingIn ? "Signing in…" : "Client Login"}
+                </button>
                 <a
                   href="#contact"
                   onClick={() => setOpen(false)}
