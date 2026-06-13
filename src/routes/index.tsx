@@ -43,7 +43,7 @@ function Index() {
       }
 
       // Step 3: Redirect to client portal (same tab)
-      window.location.href = "https://zenio-studio-dash.vercel.app";
+      window.location.href = "https://client-portal-gray-five.vercel.app";
     } catch (firebaseError: any) {
       // Firebase sign-in failed (user cancelled popup, network error, etc.)
       if (firebaseError.code !== "auth/popup-closed-by-user") {
